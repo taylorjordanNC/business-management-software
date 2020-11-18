@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.CustomersWindowController"
+            prefHeight="400.0" prefWidth="600.0"
+            stylesheets="@../styles.css">
+<top>
+    <HBox alignment="CENTER">
+        <padding>
+            <Insets top="25" bottom="25"/>
+        </padding>
+        <Label text="Customer Information" styleClass="windowLabel"/>
+    </HBox>
+</top>
+    <left>
+        <VBox alignment="CENTER" spacing="25">
+            <padding>
+                <Insets right="20" left="20"/>
+            </padding>
+            <Button fx:id="homeButton" text="Home" onAction="#handleHomeButton"/>
+            <Button fx:id="calendarButton" text="Calendar" onAction="#handleCalendarButton"/>
+            <Button fx:id="customersButton" text="Customers"/>
+            <Button fx:id="logoutButton" text="Log Out" onAction="#handleLogoutButton"/>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets right="15"/>
+            </padding>
+                <TableView fx:id="customerTable" prefHeight="150">
+                    <columns>
+                        <TableColumn text="Customer ID">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="customerID"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Name">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="name"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Address">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="address"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Postal Code">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="postalCode"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Phone #">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="phoneNumber"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Division ID">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="divisionID"/>
+                                </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="New..." fx:id="newButton" onAction="#openNewCustomerDialog"/>
+                <Button text="Update" fx:id="updateButton" onAction="#openUpdateCustomerDialog"/>
+                <Button text="Delete" fx:id="deleteButton" onAction="#deleteCustomer"/>
+            </HBox>
+            <HBox alignment="CENTER_LEFT">
+                <Label text="Customer Schedule" styleClass="sectionHeader"/>
+            </HBox>
+            <TableView fx:id="customerSchedule" prefHeight="150">
+                <columns>
+                    <TableColumn text="Customer ID">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="customerId"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Title">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="title"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Description">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="description"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Location">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="location"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Type">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="type"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="startColumn" text="Start">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="start"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="endColumn" text="End">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="end"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Appointment ID">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="New..." fx:id="newButtonAppt" onAction="#handleAddAppt"/>
+                <Button text="Update" fx:id="updateApptButton" onAction="#handleUpdateAppt"/>
+                <Button text="Delete" fx:id="deleteApptButton" onAction="#handleDeleteAppt"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

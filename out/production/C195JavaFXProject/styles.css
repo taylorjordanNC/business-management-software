@@ -1,0 +1,41 @@
+.windowLabel{
+    -fx-font-size: 20px;
+    -fx-font-weight: 300;
+}
+
+.formLabel {
+    -fx-font-size: 20px;
+    -fx-font-weight: 300;
+}
+
+.sectionHeader{
+    -fx-font-size: 16px;
+}
+
+.hiddenLabel{
+    -fx-font-size: 12px;
+    -fx-margin-bottom: -5px;
+}
+
+.hiddenErrorLabel{
+    -fx-font-size: 12px;
+    -fx-margin-bottom: -5px;
+    -fx-text-fill: red;
+}
+
+.combo-box:disabled, .combo-box:disabled > * {
+	-fx-opacity: .75;
+}
+
+.combo-box:disabled .arrow, .combo-box:disabled .arrow-button{
+    -fx-background-color: transparent;
+}
+
+.text-field:disabled {
+    -fx-opacity: .5;
+}
+
+.datePicker:disabled {
+    -fx-opacity: 1;
+}
+

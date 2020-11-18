@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="controller.UpdateAppointmentController"
+          prefHeight="400.0" prefWidth="600.0" alignment="CENTER"
+        stylesheets="@../styles.css">
+    <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <padding>
+            <Insets bottom="25" top="10"/>
+        </padding>
+        <Label text="Update Appointment" styleClass="formLabel"/>
+    </VBox>
+    <HBox GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <padding>
+            <Insets bottom="10"/>
+        </padding>
+        <TextField fx:id="appointmentID"/>
+    </HBox>
+    <VBox GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+        <TextField fx:id="appointmentTitle" promptText="Title"/>
+        <Label fx:id="titleLabel" text="Title" visible="false" styleClass="hiddenLabel"/>
+    </VBox>
+    <VBox GridPane.rowIndex="3" GridPane.columnIndex="0">
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+        <TextField fx:id="appointmentDesc" promptText="Description"/>
+        <Label fx:id="descLabel" text="Description" visible="false" styleClass="hiddenLabel"/>
+    </VBox>
+    <VBox GridPane.rowIndex="4" GridPane.columnIndex="0">
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+        <TextField fx:id="apptLocation" promptText="Location"/>
+        <Label fx:id="locationLabel" text="Location" visible="false" styleClass="hiddenLabel"/>
+    </VBox>
+    <HBox GridPane.rowIndex="5" GridPane.columnIndex="0" spacing="10">
+        <DatePicker fx:id="startDatePicker" editable="false" promptText="Start Date" styleClass="datePicker"/>
+        <VBox>
+            <ComboBox fx:id="timeComboBoxStart" promptText="Start Time"/>
+            <Label fx:id="startTimeLabel" text="Invalid Time" styleClass="hiddenErrorLabel"/>
+        </VBox>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </HBox>
+    <HBox GridPane.rowIndex="6" GridPane.columnIndex="0" spacing="10">
+        <DatePicker fx:id="endDatePicker" editable="false" promptText="End Date" styleClass="datePicker"/>
+        <VBox>
+            <ComboBox fx:id="timeComboBoxEnd" promptText="End Time"/>
+            <Label fx:id="endTimeLabel" text="Invalid Time" styleClass="hiddenErrorLabel"/>
+        </VBox>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </HBox>
+    <HBox GridPane.rowIndex="7" GridPane.columnIndex="0" spacing="10">
+        <ComboBox fx:id="contactsComboBox"/>
+        <ComboBox fx:id="appointmentType" promptText="Type"/>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </HBox>
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="8" spacing="10">
+        <ComboBox fx:id="customersComboBox"/>
+        <ComboBox fx:id="userComboBox"/>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </HBox>
+    <HBox spacing="20" GridPane.rowIndex="9" GridPane.columnIndex="0" alignment="CENTER_RIGHT">
+        <padding>
+            <Insets top="25"/>
+        </padding>
+        <Button text="Save" fx:id="saveAppointmentButton" onAction="#handleSaveAppointment"/>
+        <Button text="Cancel" fx:id="cancelButton" onAction="#handleCancel"/>
+    </HBox>
+</GridPane>
+

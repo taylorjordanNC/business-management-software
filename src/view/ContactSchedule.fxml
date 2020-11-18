@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.geometry.Insets?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="controller.ContactScheduleController"
+          prefHeight="400.0" prefWidth="600.0" alignment="CENTER" stylesheets="@../styles.css">
+    <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" alignment="CENTER">
+        <Label fx:id="scheduleLabel" styleClass="formLabel"/>
+        <padding>
+            <Insets bottom="25" top="10"/>
+        </padding>
+    </HBox>
+    <TableView fx:id="contactSchedule" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <columns>
+            <TableColumn text="ID">
+                <cellValueFactory>
+                    <PropertyValueFactory property="id"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Title">
+                <cellValueFactory>
+                    <PropertyValueFactory property="title"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Type">
+                <cellValueFactory>
+                    <PropertyValueFactory property="type"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Description">
+                <cellValueFactory>
+                    <PropertyValueFactory property="description"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Start" fx:id="startColumn">
+                <cellValueFactory>
+                    <PropertyValueFactory property="start"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="End" fx:id="endColumn">
+                <cellValueFactory>
+                    <PropertyValueFactory property="end"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Customer ID">
+                <cellValueFactory>
+                    <PropertyValueFactory property="customerId"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="2" alignment="CENTER_RIGHT" spacing="10">
+        <padding>
+            <Insets top="10"/>
+        </padding>
+        <Button text="New..." fx:id="newButton" onAction="#handleNewAppt"/>
+        <Button text="Update" fx:id="updateButton" onAction="#handleUpdate"/>
+        <Button text="Delete" fx:id="deleteButton" onAction="#handleDelete"/>
+    </HBox>
+</GridPane>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="controller.AddContactController"
+          prefHeight="400.0" prefWidth="600.0" alignment="CENTER"
+            stylesheets="@../styles.css">
+
+    <HBox GridPane.rowIndex="0" GridPane.columnIndex="0">
+        <Label text="New Contact" styleClass="formLabel"/>
+        <padding>
+            <Insets bottom="25" top="10"/>
+        </padding>
+    </HBox>
+    <VBox GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <TextField fx:id="nameTextField" promptText="Name"/>
+        <Label styleClass="hiddenLabel" fx:id="nameLabel" text="Name"/>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </VBox>
+    <VBox GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <TextField fx:id="emailTextField" promptText="Email"/>
+        <Label styleClass="hiddenLabel" fx:id="emailLabel" text="Email"/>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </VBox>
+    <HBox GridPane.rowIndex="3" GridPane.columnIndex="0" alignment="CENTER_RIGHT" spacing="10">
+        <padding>
+            <Insets top="20"/>
+        </padding>
+        <Button text="Add" fx:id="addButton" onAction="#handleAddContact"/>
+        <Button text="Cancel" fx:id="cancelButton" onAction="#handleCancel"/>
+    </HBox>
+</GridPane>

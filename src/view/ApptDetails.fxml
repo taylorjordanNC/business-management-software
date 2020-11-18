@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="controller.ApptDetailsController"
+          prefHeight="500.0" prefWidth="500.0" alignment="CENTER"
+            stylesheets="@../styles.css">
+    <VBox GridPane.rowIndex="0" GridPane.columnIndex="0">
+        <HBox alignment="CENTER">
+            <Label text="Appointment Details" styleClass="formLabel"/>
+            <padding>
+                <Insets bottom="25" top="10"/>
+            </padding>
+        </HBox>
+        <VBox>
+        <TableView fx:id="table1">
+            <columns>
+                <TableColumn text="ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Title">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="title"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Description">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="description"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Location">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="location"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Type">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="type"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </VBox>
+    <VBox>
+        <TableView fx:id="table2">
+            <columns>
+                <TableColumn fx:id="startColumn" text="Start Time">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="start"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="endColumn" text="End Time">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="end"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </VBox>
+    <VBox>
+        <TableView fx:id="table3">
+            <columns>
+                <TableColumn text="Contact">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="contact"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Customer">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="customerId"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="User">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="user"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </VBox>
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <padding>
+            <Insets bottom="20"/>
+        </padding>
+        <Button fx:id="editButton" text="Update" onAction="#handleUpdateButton"/>
+        <Button fx:id="deleteButton" text="Delete" onAction="#handleDeleteButton"/>
+    </HBox>
+    </VBox>
+</GridPane>

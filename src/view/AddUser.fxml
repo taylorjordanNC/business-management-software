@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Box?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="controller.AddUserController"
+          prefHeight="400.0" prefWidth="600.0" alignment="CENTER"
+          stylesheets="@../styles.css">
+    <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" alignment="CENTER">
+        <Label styleClass="formLabel" text="New User"/>
+        <padding>
+            <Insets bottom="25" top="10"/>
+        </padding>
+    </HBox>
+    <VBox GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <TextField fx:id="usernameTF" promptText="Username"/>
+        <Label text="Username" fx:id="usernameLabel" styleClass="hiddenLabel"/>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </VBox>
+    <VBox GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <PasswordField fx:id="userPasswordTF" promptText="Password"/>
+        <Label text="Password" fx:id="passwordLabel" styleClass="hiddenLabel"/>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </VBox>
+    <VBox GridPane.rowIndex="3" GridPane.columnIndex="0">
+        <PasswordField fx:id="userPasswordTF2" promptText="Re-Enter Password"/>
+        <Label text="Re-Enter Password" fx:id="passwordLabel2" styleClass="hiddenLabel"/>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </VBox>
+    <HBox GridPane.rowIndex="5" GridPane.columnIndex="0" alignment="CENTER_RIGHT" spacing="10">
+        <padding>
+            <Insets top="25"/>
+        </padding>
+        <Button fx:id="saveButton" text="Save" onAction="#handleSaveUser"/>
+        <Button fx:id="cancelButton" text="Cancel" onAction="#handleCancel"/>
+    </HBox>
+
+</GridPane>

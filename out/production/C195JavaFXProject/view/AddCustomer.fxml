@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="controller.AddCustomerController"
+          prefHeight="400.0" prefWidth="600.0"
+            stylesheets="@../styles.css" alignment="CENTER">
+    <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" alignment="CENTER">
+        <padding>
+            <Insets bottom="25" top="10"/>
+        </padding>
+        <Label text="New Customer" styleClass="formLabel"/>
+    </HBox>
+    <VBox GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <TextField fx:id="nameTF" promptText="Name"/>
+        <Label text="Name" fx:id="nameLabel" styleClass="hiddenLabel"/>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </VBox>
+    <VBox GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <TextField fx:id="addressTF" promptText="Address"/>
+        <Label text="Address" fx:id="addressLabel" styleClass="hiddenLabel"/>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </VBox>
+    <VBox GridPane.rowIndex="3" GridPane.columnIndex="0">
+        <TextField fx:id="postalCodeTF" promptText="Postal Code"/>
+        <Label text="Postal Code" fx:id="postalCodeLabel" styleClass="hiddenLabel"/>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </VBox>
+    <VBox GridPane.rowIndex="4" GridPane.columnIndex="0">
+        <TextField fx:id="phoneTF" promptText="Phone Number"/>
+        <Label text="Phone Number" fx:id="phoneLabel" styleClass="hiddenLabel"/>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </VBox>
+    <HBox GridPane.rowIndex="5" GridPane.columnIndex="0" spacing="10">
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+        <ComboBox promptText="Country..." fx:id="countryComboBox"/>
+        <ComboBox promptText="Division..." fx:id="divisionComboBox"/>
+    </HBox>
+    <HBox GridPane.rowIndex="6" GridPane.columnIndex="0">
+        <ComboBox fx:id="userComboBox"/>
+        <padding>
+            <Insets bottom="5"/>
+        </padding>
+    </HBox>
+    <HBox GridPane.rowIndex="7" GridPane.columnIndex="0" alignment="CENTER_RIGHT" spacing="10">
+        <padding>
+            <Insets top="25"/>
+        </padding>
+        <Button text="Add" fx:id="addButton" onAction="#handleAddCustomer"/>
+        <Button text="Cancel" fx:id="cancelButton" onAction="#handleCancel"/>
+    </HBox>
+</GridPane>
+

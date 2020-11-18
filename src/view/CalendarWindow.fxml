@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.sun.javafx.scene.control.DatePickerContent?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.CalendarWindowController"
+            prefHeight="400.0" prefWidth="600.0"
+            stylesheets="@../styles.css">
+    <left>
+        <VBox alignment="CENTER" spacing="25">
+            <padding>
+                <Insets left="20" right="20"/>
+            </padding>
+            <Button fx:id="homeButton" text="Home" onAction="#handleHomeButton"/>
+            <Button fx:id="calendarButton" text="Calendar"/>
+            <Button fx:id="customersButton" text="Customers" onAction="#handleCustomersButton"/>
+            <Button fx:id="logoutButton" text="Log Out" onAction="#handleLogout" />
+        </VBox>
+    </left>
+    <top>
+        <HBox alignment="CENTER">
+            <Label text="Appointment Calendar" styleClass="windowLabel"/>
+                <padding>
+                    <Insets top="20" bottom="20"/>
+                </padding>
+        </HBox>
+    </top>
+    <center>
+        <BorderPane>
+            <center>
+                <VBox fx:id="centerContainer">
+                <GridPane gridLinesVisible="true" minHeight="100">
+                    <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label fx:id="today"/>
+                        <ListView fx:id="todaysAppts"/>
+                    </VBox>
+                    <VBox GridPane.rowIndex="0" GridPane.columnIndex="1">
+                        <Label fx:id="tomorrow"/>
+                        <ListView fx:id="tomorrowsAppts"/>
+                    </VBox>
+                    <VBox GridPane.rowIndex="0" GridPane.columnIndex="2">
+                        <Label fx:id="day3"/>
+                        <ListView fx:id="day3Appts"/>
+                    </VBox>
+                    <VBox GridPane.rowIndex="0" GridPane.columnIndex="3">
+                        <Label fx:id="day4"/>
+                        <ListView fx:id="day4Appts"/>
+                    </VBox>
+                    <VBox GridPane.rowIndex="0" GridPane.columnIndex="4">
+                        <Label fx:id="day5"/>
+                        <ListView fx:id="day5Appts"/>
+                    </VBox>
+                    <VBox GridPane.rowIndex="0" GridPane.columnIndex="5">
+                        <Label fx:id="day6"/>
+                        <ListView fx:id="day6Appts"/>
+                    </VBox>
+                    <VBox GridPane.rowIndex="0" GridPane.columnIndex="6">
+                        <Label fx:id="day7"/>
+                        <ListView fx:id="day7Appts"/>
+                    </VBox>
+                    <padding>
+                        <Insets bottom="20"/>
+                    </padding>
+                </GridPane>
+                    <VBox>
+                        <padding>
+                            <Insets bottom="5"/>
+                        </padding>
+                        <AnchorPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <VBox AnchorPane.leftAnchor="0" spacing="5">
+                            <Label text="Search by Day" styleClass="sectionHeader"/>
+                            <HBox spacing="25">
+                                <DatePicker fx:id="apptDatePicker" promptText="Day..."/>
+                                <Label text="OR" minWidth="20" styleClass="sectionHeader"/>
+                            </HBox>
+                        </VBox>
+                        <VBox alignment="CENTER_RIGHT" AnchorPane.rightAnchor="0" spacing="5">
+                            <HBox alignment="CENTER_RIGHT">
+                                <Label text="Search by Month/Week" styleClass="sectionHeader"/>
+                            </HBox>
+                            <HBox maxHeight="25" spacing="8">
+                                <ComboBox promptText="Month" fx:id="monthComboBox"/>
+                                <ComboBox promptText="Year" fx:id="yearComboBox"/>
+                                <Button fx:id="searchButton" onAction="#handleSearch"/>
+                                <ComboBox promptText="Select Week" fx:id="weekComboBox"/>
+                                <Button fx:id="searchByWeekButton" onAction="#handleSearchByWeek"/>
+                            </HBox>
+                        </VBox>
+                        </AnchorPane>
+                    <TableView fx:id="allAppointments">
+                        <columns>
+                            <TableColumn text="Appointment ID">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="id"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Title">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="title"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Description">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="description"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Location">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="location"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Contact">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="contact"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Type">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="type"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="startColumn" text="Start">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="start"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="endColumn" text="End">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="end"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Customer ID">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="customerId"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                        <AnchorPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <HBox alignment="CENTER_LEFT" spacing="10" AnchorPane.leftAnchor="0">
+                        <padding>
+                            <Insets top="10"/>
+                        </padding>
+                        <Button fx:id="newApptButton" text="New..." onAction="#handleNewAppt"/>
+                        <Button fx:id="updateApptButton" text="Update" onAction="#handleUpdateAppt"/>
+                        <Button fx:id="deleteApptButton" text="Delete" onAction="#handleDeleteAppt"/>
+                    </HBox>
+                    <HBox alignment="CENTER_RIGHT" spacing="10" AnchorPane.rightAnchor="0">
+                        <padding>
+                            <Insets top="15"/>
+                        </padding>
+                        <Button fx:id="sortByTypeButton" text="Get Count By Type" onAction="#getTypeCount"/>
+                        <Button text="Refresh" onAction="#handleRefreshTable"/>
+                    </HBox>
+                        </AnchorPane>
+                        <VBox alignment="BOTTOM_RIGHT" spacing="10">
+                            <padding>
+                                <Insets top="10" right="15"/>
+                            </padding>
+                            <TableView fx:id="typeCount" prefHeight="150">
+                                <columns>
+                                    <TableColumn text="Type">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="typeName"/>
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn text="Count">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="count"/>
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                </VBox>
+                    <padding>
+                        <Insets right="15" bottom="15"/>
+                    </padding>
+                </VBox>
+            </center>
+    </BorderPane>
+
+    </center>
+
+</BorderPane>

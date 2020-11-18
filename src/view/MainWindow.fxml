@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.ComboBox?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.MainWindowController" stylesheets="@../styles.css">
+    <top>
+            <VBox alignment="CENTER_RIGHT" spacing="10" visible="false" fx:id="adminControls">
+                <padding>
+                    <Insets top="10" bottom="10" right="10"/>
+                </padding>
+                <Label text="Admin Controls" styleClass="sectionHeader"/>
+                <Button fx:id="adminButton" text="Manage Users" onAction="#handleUserDialog"/>
+            </VBox>
+    </top>
+    <left>
+        <VBox alignment="CENTER" spacing="25">
+            <padding>
+                <Insets left="20" right="20"/>
+            </padding>
+            <Button fx:id="homeButton" text="Home"/>
+            <Button fx:id="calendarButton" text="Calendar" onAction="#handleCalendarButton"/>
+            <Button fx:id="customersButton" text="Customers" onAction="#handleCustomersButton"/>
+            <Button fx:id="logoutButton" text="Log Out" onAction="#handleLogout"/>
+        </VBox>
+    </left>
+    <center>
+        <VBox alignment="CENTER">
+            <HBox alignment="CENTER">
+                <padding>
+                    <Insets bottom="15"/>
+                </padding>
+                <Label fx:id="welcomeLabel" styleClass="windowLabel"/>
+            </HBox>
+        <GridPane>
+        <HBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0">
+            <Label text="Upcoming Schedule" styleClass="sectionHeader"/>
+            <padding>
+                <Insets top="15" bottom="15"/>
+            </padding>
+        </HBox>
+        <GridPane fx:id="calendarGridPane" gridLinesVisible="true" minHeight="100" prefHeight="150" GridPane.rowIndex="1" GridPane.columnIndex="0">
+            <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label fx:id="today"/>
+                <ListView fx:id="todaysAppts"/>
+            </VBox>
+            <VBox GridPane.rowIndex="0" GridPane.columnIndex="1">
+                <Label fx:id="tomorrow"/>
+                <ListView fx:id="tomorrowsAppts"/>
+            </VBox>
+            <VBox GridPane.rowIndex="0" GridPane.columnIndex="2">
+                <Label fx:id="day3"/>
+                <ListView fx:id="day3Appts"/>
+            </VBox>
+            <VBox GridPane.rowIndex="0" GridPane.columnIndex="3">
+                <Label fx:id="day4"/>
+                <ListView fx:id="day4Appts"/>
+            </VBox>
+            </GridPane>
+        </GridPane>
+        <VBox spacing="10">
+            <VBox alignment="CENTER">
+                <padding>
+                    <Insets bottom="5" top="15"/>
+                </padding>
+                <Label text="Contacts List" styleClass="sectionHeader"/>
+            </VBox>
+            <TableView fx:id="contactsTable" minHeight="100">
+                <columns>
+                    <TableColumn text="Contact ID">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="contactID"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Name">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="contactName"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Email">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="email"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <AnchorPane fx:id="buttonAP">
+                <HBox alignment="CENTER_LEFT" AnchorPane.leftAnchor="0">
+                    <Button text="Get Schedule" fx:id="getScheduleButton" onAction="#getContactSchedule"/>
+                </HBox>
+                <HBox spacing="10" AnchorPane.rightAnchor="0">
+                    <Button text="New..." fx:id="addContactButton" onAction="#handleAddContact"/>
+                    <Button text="Update" fx:id="updateContactButton" onAction="#handleUpdateContact"/>
+                    <Button text="Delete" fx:id="deleteContactButton" onAction="#handleDeleteContact"/>
+                </HBox>
+            </AnchorPane>
+        </VBox>
+        </VBox>
+    </center>
+    <right>
+        <VBox spacing="10" alignment="CENTER">
+            <padding>
+                <Insets left="10" right="10"/>
+            </padding>
+            <Label text="Browse First Level Divisions" styleClass="sectionHeader"/>
+            <ComboBox promptText="Choose country..." fx:id="countryComboBox"/>
+            <ListView fx:id="divisionList" prefHeight="100"/>
+            <Button text="Customer List" fx:id="getCustomersButton" onAction="#handleGetCustomers"/>
+        </VBox>
+    </right>
+    <bottom>
+        <VBox alignment="CENTER_RIGHT">
+            <padding>
+                <Insets bottom="10" right="10"/>
+            </padding>
+            <Button fx:id="editUserButton" text="Edit Username/Password" onAction="#handleUpdateUser"/>
+        </VBox>
+    </bottom>
+</BorderPane>

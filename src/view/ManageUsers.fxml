@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.ManageUsersController"
+            prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css">
+
+    <top>
+        <VBox alignment="CENTER">
+            <Label styleClass="formLabel" text="Manage User Information"/>
+            <padding>
+                <Insets top="10" bottom="25"/>
+            </padding>
+        </VBox>
+    </top>
+    <center>
+        <VBox>
+            <TableView fx:id="userTable">
+                <columns>
+                <TableColumn text="ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="userID"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Username">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="userName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Password">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="password"/>
+                    </cellValueFactory>
+                </TableColumn>
+                </columns>
+            </TableView>
+            <AnchorPane>
+                <HBox alignment="CENTER_LEFT" AnchorPane.leftAnchor="0">
+                    <padding>
+                        <Insets top="10"/>
+                    </padding>
+                    <Button text="Get Schedule" fx:id="scheduleButton" onAction="#openSchedule"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_RIGHT" AnchorPane.rightAnchor="0">
+                    <padding>
+                        <Insets top="10"/>
+                    </padding>
+                    <Button text="New..." fx:id="newButton" onAction="#handleAddUser"/>
+                    <Button text="Update" fx:id="updateButton" onAction="#handleUpdateUser"/>
+                    <Button text="Delete" fx:id="deleteButton" onAction="#handleDeleteUser"/>
+                </HBox>
+            </AnchorPane>
+        </VBox>
+    </center>
+</BorderPane>
