@@ -1,19 +1,16 @@
-Title: Business Management Application
+# Business Management Application
 
-Purpose: This application manages the appointments, contacts, customers, and employees/users within a business. Each user
+This is a demo application to manage the appointments, contacts, customers, and employees/users within a business. Each user
 is able to efficiently track their schedule and list of customers and contacts in order to operate more productively for their business.
 
-Author: Taylor Jordan Smith
-Email: tsm1121@wgu.edu
-
-Application Version: 1.0
-Date: 11-11-2020
+## IDE/Language
 
 IDE: IntelliJ Community 2020.2
 JDK: Java version 14.0.2
 JavaFX: JavaFX 14.0.2.1
 
-Directions:
+## Instructions
+
 Application may be started from the main thread and the appropriate 'Run' button within your default program.
 You may log in with the following credentials:
 Username: admin (This will give you access to every feature.)
@@ -41,3 +38,12 @@ in the calendar window, if you double click an item within the calendar view or 
 If that option, 'Details', is selected, the appointment details are loaded for the user. From that details window, the user may edit or delete the appointment.
 
 If you want to log out but keep the application open, simply click the 'Log Out' button. From there, you may log in again or exit the application.
+
+## Contributing
+
+Pull requests are welcome. I am a new developer open to contributions and suggestions!
+
+### Contact
+
+Author: Taylor J Smith
+Email: taylorjordansmith@gmail.com
